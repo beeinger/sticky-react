@@ -1,12 +1,15 @@
 import React, { PureComponent } from "react";
 
-import { ContextTypes } from "./Sticky";
+import { ContextType } from "./Sticky";
 import raf from "raf";
 
 export default class Container extends PureComponent {
-  static childContextTypes = ContextTypes;
-
-  getChildContext() {
+  static childContextTypes: ContextType = {
+    subscribe: Function,
+    unsubscribe: Function,
+    getParent: Function,
+  };
+  getChildContext(): ContextType {
     return {
       subscribe: this.subscribe,
       unsubscribe: this.unsubscribe,

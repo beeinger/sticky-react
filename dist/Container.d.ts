@@ -1,15 +1,8 @@
 import { PureComponent } from "react";
+import { ContextType } from "./Sticky";
 export default class Container extends PureComponent {
-    static childContextTypes: {
-        subscribe: FunctionConstructor;
-        unsubscribe: FunctionConstructor;
-        getParent: FunctionConstructor;
-    };
-    getChildContext(): {
-        subscribe: (handler: Function) => void;
-        unsubscribe: (handler: Function) => void;
-        getParent: () => HTMLDivElement | null;
-    };
+    static childContextTypes: ContextType;
+    getChildContext(): ContextType;
     node: HTMLDivElement | null;
     framePending: boolean;
     rafHandle: number | null;

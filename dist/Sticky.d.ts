@@ -15,18 +15,15 @@ interface StickyState {
     distanceFromBottom?: number;
     calculatedHeight?: number;
 }
-export declare const ContextTypes: {
-    subscribe: FunctionConstructor;
-    unsubscribe: FunctionConstructor;
-    getParent: FunctionConstructor;
-};
+export declare const ContextTypes: ContextType;
+export interface ContextType {
+    subscribe: Function;
+    unsubscribe: Function;
+    getParent: Function;
+}
 export default class Sticky extends Component<StickyProps, StickyState> {
     static defaultProps: Partial<StickyProps>;
-    static contextTypes: {
-        subscribe: FunctionConstructor;
-        unsubscribe: FunctionConstructor;
-        getParent: FunctionConstructor;
-    };
+    static contextTypes: ContextType;
     state: StickyState;
     placeholder: HTMLDivElement | null;
     content: Element | null;

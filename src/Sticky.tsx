@@ -20,11 +20,17 @@ interface StickyState {
   calculatedHeight?: number;
 }
 
-export const ContextTypes = {
-  subscribe: Function,
-  unsubscribe: Function,
-  getParent: Function,
+export const ContextTypes: ContextType = {
+  subscribe: () => {},
+  unsubscribe: () => {},
+  getParent: () => {},
 };
+
+export interface ContextType {
+  subscribe: Function;
+  unsubscribe: Function;
+  getParent: Function;
+}
 
 export default class Sticky extends Component<StickyProps, StickyState> {
   static defaultProps: Partial<StickyProps> = {
